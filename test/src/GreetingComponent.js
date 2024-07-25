@@ -11,7 +11,7 @@ const GreetingComponent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`https://blue-river-089cf7510.5.azurestaticapps.net/api?name=${name}`);
+      const response = await fetch(`https://blue-river-089cf7510.5.azurestaticapps.net/api/HttpTrigger?name=${name}`);
       const data = await response.text();
       setMessage(data);
     } catch (error) {
