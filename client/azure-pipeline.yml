@@ -1,0 +1,22 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '14.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run build
+  displayName: 'Build Project'
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'ac6f4f8c-b53a-41da-aec6-7acb2d201895'
+    appName: 'self-training'
+    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
