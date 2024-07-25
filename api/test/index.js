@@ -1,5 +1,5 @@
 module.exports = async function (context, req) {
-    context.log('function processed a request.');
+    context.log('function processed a request');
 
     const name = (req.query.name || (req.body && req.body.name));
     const responseMessage = name
